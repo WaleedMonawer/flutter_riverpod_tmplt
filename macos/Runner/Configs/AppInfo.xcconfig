@@ -1,0 +1,11 @@
+// Application-level settings for the Runner target.
+//
+// This may be replaced with something auto-generated from metadata (e.g., from
+// pubspec.yaml) in the future. If not, the values below would default to using
+// the project name when this target was created, which is not necessarily the
+// correct name for the final application.
+PRODUCT_NAME = flutter_riverpod_tmplt
+PRODUCT_BUNDLE_IDENTIFIER = com.example.flutter_riverpod_tmplt
+
+// The copyright displayed in application information
+PRODUCT_COPYRIGHT = Copyright © 2025 com.example. All rights reserved.

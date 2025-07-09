@@ -1,0 +1,319 @@
+{
+  "@@locale": "en",
+  "appTitle": "Clean Architecture Riverpod",
+  "@appTitle": {
+    "description": "The title of the application"
+  },
+  "loading": "Loading...",
+  "@loading": {
+    "description": "Loading text"
+  },
+  "error": "Error",
+  "@error": {
+    "description": "Error text"
+  },
+  "retry": "Retry",
+  "@retry": {
+    "description": "Retry button text"
+  },
+  "cancel": "Cancel",
+  "@cancel": {
+    "description": "Cancel button text"
+  },
+  "save": "Save",
+  "@save": {
+    "description": "Save button text"
+  },
+  "delete": "Delete",
+  "@delete": {
+    "description": "Delete button text"
+  },
+  "edit": "Edit",
+  "@edit": {
+    "description": "Edit button text"
+  },
+  "add": "Add",
+  "@add": {
+    "description": "Add button text"
+  },
+  "search": "Search",
+  "@search": {
+    "description": "Search text"
+  },
+  "settings": "Settings",
+  "@settings": {
+    "description": "Settings text"
+  },
+  "profile": "Profile",
+  "@profile": {
+    "description": "Profile text"
+  },
+  "logout": "Logout",
+  "@logout": {
+    "description": "Logout text"
+  },
+  "login": "Login",
+  "@login": {
+    "description": "Login text"
+  },
+  "register": "Register",
+  "@register": {
+    "description": "Register text"
+  },
+  "posts": "Posts",
+  "@posts": {
+    "description": "Posts text"
+  },
+  "post": "Post",
+  "@post": {
+    "description": "Post text"
+  },
+  "createPost": "Create Post",
+  "@createPost": {
+    "description": "Create post text"
+  },
+  "editPost": "Edit Post",
+  "@editPost": {
+    "description": "Edit post text"
+  },
+  "deletePost": "Delete Post",
+  "@deletePost": {
+    "description": "Delete post text"
+  },
+  "postTitle": "Title",
+  "@postTitle": {
+    "description": "Post title label"
+  },
+  "postBody": "Content",
+  "@postBody": {
+    "description": "Post body label"
+  },
+  "postAuthor": "Author",
+  "@postAuthor": {
+    "description": "Post author label"
+  },
+  "postDate": "Date",
+  "@postDate": {
+    "description": "Post date label"
+  },
+  "noPosts": "No Posts",
+  "@noPosts": {
+    "description": "No posts text"
+  },
+  "noPostsMessage": "No posts available",
+  "@noPostsMessage": {
+    "description": "No posts message"
+  },
+  "postCreated": "Post created successfully",
+  "@postCreated": {
+    "description": "Post created success message"
+  },
+  "postUpdated": "Post updated successfully",
+  "@postUpdated": {
+    "description": "Post updated success message"
+  },
+  "postDeleted": "Post deleted successfully",
+  "@postDeleted": {
+    "description": "Post deleted success message"
+  },
+  "postCreationFailed": "Failed to create post",
+  "@postCreationFailed": {
+    "description": "Post creation failed message"
+  },
+  "postUpdateFailed": "Failed to update post",
+  "@postUpdateFailed": {
+    "description": "Post update failed message"
+  },
+  "postDeletionFailed": "Failed to delete post",
+  "@postDeletionFailed": {
+    "description": "Post deletion failed message"
+  },
+  "requiredField": "This field is required",
+  "@requiredField": {
+    "description": "Required field validation message"
+  },
+  "invalidEmail": "Invalid email address",
+  "@invalidEmail": {
+    "description": "Invalid email validation message"
+  },
+  "invalidPassword": "Invalid password",
+  "@invalidPassword": {
+    "description": "Invalid password validation message"
+  },
+  "passwordTooShort": "Password is too short",
+  "@passwordTooShort": {
+    "description": "Password too short validation message"
+  },
+  "passwordsDoNotMatch": "Passwords do not match",
+  "@passwordsDoNotMatch": {
+    "description": "Passwords do not match validation message"
+  },
+  "invalidInput": "Invalid input",
+  "@invalidInput": {
+    "description": "Invalid input message"
+  },
+  "networkError": "Network error",
+  "@networkError": {
+    "description": "Network error message"
+  },
+  "connectionError": "Connection error",
+  "@connectionError": {
+    "description": "Connection error message"
+  },
+  "serverError": "Server error",
+  "@serverError": {
+    "description": "Server error message"
+  },
+  "timeoutError": "Request timeout",
+  "@timeoutError": {
+    "description": "Timeout error message"
+  },
+  "noInternetConnection": "No internet connection",
+  "@noInternetConnection": {
+    "description": "No internet connection message"
+  },
+  "lightTheme": "Light",
+  "@lightTheme": {
+    "description": "Light theme text"
+  },
+  "darkTheme": "Dark",
+  "@darkTheme": {
+    "description": "Dark theme text"
+  },
+  "systemTheme": "System",
+  "@systemTheme": {
+    "description": "System theme text"
+  },
+  "themeSettings": "Theme Settings",
+  "@themeSettings": {
+    "description": "Theme settings text"
+  },
+  "language": "Language",
+  "@language": {
+    "description": "Language text"
+  },
+  "english": "English",
+  "@english": {
+    "description": "English language text"
+  },
+  "arabic": "العربية",
+  "@arabic": {
+    "description": "Arabic language text"
+  },
+  "languageSettings": "Language Settings",
+  "@languageSettings": {
+    "description": "Language settings text"
+  },
+  "dataManagement": "Data Management",
+  "@dataManagement": {
+    "description": "Data management text"
+  },
+  "clearAllData": "Clear All Data",
+  "@clearAllData": {
+    "description": "Clear all data button text"
+  },
+  "clearDataConfirmation": "Clear All Data",
+  "@clearDataConfirmation": {
+    "description": "Clear data confirmation dialog title"
+  },
+  "clearDataMessage": "This will clear all saved data including posts, settings, and preferences. This action cannot be undone.",
+  "@clearDataMessage": {
+    "description": "Clear data confirmation message"
+  },
+  "dataClearedSuccessfully": "All data cleared successfully",
+  "@dataClearedSuccessfully": {
+    "description": "Data cleared success message"
+  },
+  "failedToClearData": "Failed to clear data",
+  "@failedToClearData": {
+    "description": "Failed to clear data error message"
+  },
+  "loadingSettings": "Loading settings...",
+  "@loadingSettings": {
+    "description": "Loading settings text"
+  },
+  "failedToLoadSettings": "Failed to load settings",
+  "@failedToLoadSettings": {
+    "description": "Failed to load settings error message"
+  },
+  "settingsLoadedSuccessfully": "Settings loaded successfully",
+  "@settingsLoadedSuccessfully": {
+    "description": "Settings loaded success message"
+  },
+  "themeUpdatedSuccessfully": "Theme updated successfully",
+  "@themeUpdatedSuccessfully": {
+    "description": "Theme updated success message"
+  },
+  "failedToUpdateTheme": "Failed to update theme",
+  "@failedToUpdateTheme": {
+    "description": "Failed to update theme error message"
+  },
+  "languageUpdatedSuccessfully": "Language updated successfully",
+  "@languageUpdatedSuccessfully": {
+    "description": "Language updated success message"
+  },
+  "failedToUpdateLanguage": "Failed to update language",
+  "@failedToUpdateLanguage": {
+    "description": "Failed to update language error message"
+  },
+  "refresh": "Refresh",
+  "@refresh": {
+    "description": "Refresh text"
+  },
+  "createNewPost": "Create New Post",
+  "@createNewPost": {
+    "description": "Create new post text"
+  },
+  "enterTitle": "Enter title",
+  "@enterTitle": {
+    "description": "Enter title placeholder"
+  },
+  "enterContent": "Enter content",
+  "@enterContent": {
+    "description": "Enter content placeholder"
+  },
+  "submit": "Submit",
+  "@submit": {
+    "description": "Submit button text"
+  },
+  "back": "Back",
+  "@back": {
+    "description": "Back button text"
+  },
+  "close": "Close",
+  "@close": {
+    "description": "Close button text"
+  },
+  "ok": "OK",
+  "@ok": {
+    "description": "OK button text"
+  },
+  "yes": "Yes",
+  "@yes": {
+    "description": "Yes button text"
+  },
+  "no": "No",
+  "@no": {
+    "description": "No button text"
+  },
+  "confirm": "Confirm",
+  "@confirm": {
+    "description": "Confirm button text"
+  },
+  "success": "Success",
+  "@success": {
+    "description": "Success text"
+  },
+  "warning": "Warning",
+  "@warning": {
+    "description": "Warning text"
+  },
+  "info": "Information",
+  "@info": {
+    "description": "Information text"
+  },
+  "creatingPost": "Creating post...",
+  "@creatingPost": {
+    "description": "Creating post message"
+  }
+} 

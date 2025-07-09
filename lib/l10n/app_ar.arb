@@ -1,0 +1,319 @@
+{
+  "@@locale": "ar",
+  "appTitle": "تطبيق معماري نظيف",
+  "@appTitle": {
+    "description": "The title of the application"
+  },
+  "loading": "جاري التحميل...",
+  "@loading": {
+    "description": "Loading text"
+  },
+  "error": "خطأ",
+  "@error": {
+    "description": "Error text"
+  },
+  "retry": "إعادة المحاولة",
+  "@retry": {
+    "description": "Retry button text"
+  },
+  "cancel": "إلغاء",
+  "@cancel": {
+    "description": "Cancel button text"
+  },
+  "save": "حفظ",
+  "@save": {
+    "description": "Save button text"
+  },
+  "delete": "حذف",
+  "@delete": {
+    "description": "Delete button text"
+  },
+  "edit": "تعديل",
+  "@edit": {
+    "description": "Edit button text"
+  },
+  "add": "إضافة",
+  "@add": {
+    "description": "Add button text"
+  },
+  "search": "بحث",
+  "@search": {
+    "description": "Search text"
+  },
+  "settings": "الإعدادات",
+  "@settings": {
+    "description": "Settings text"
+  },
+  "profile": "الملف الشخصي",
+  "@profile": {
+    "description": "Profile text"
+  },
+  "logout": "تسجيل الخروج",
+  "@logout": {
+    "description": "Logout text"
+  },
+  "login": "تسجيل الدخول",
+  "@login": {
+    "description": "Login text"
+  },
+  "register": "التسجيل",
+  "@register": {
+    "description": "Register text"
+  },
+  "posts": "المنشورات",
+  "@posts": {
+    "description": "Posts text"
+  },
+  "post": "منشور",
+  "@post": {
+    "description": "Post text"
+  },
+  "createPost": "إنشاء منشور",
+  "@createPost": {
+    "description": "Create post text"
+  },
+  "editPost": "تعديل المنشور",
+  "@editPost": {
+    "description": "Edit post text"
+  },
+  "deletePost": "حذف المنشور",
+  "@deletePost": {
+    "description": "Delete post text"
+  },
+  "postTitle": "العنوان",
+  "@postTitle": {
+    "description": "Post title label"
+  },
+  "postBody": "المحتوى",
+  "@postBody": {
+    "description": "Post body label"
+  },
+  "postAuthor": "الكاتب",
+  "@postAuthor": {
+    "description": "Post author label"
+  },
+  "postDate": "التاريخ",
+  "@postDate": {
+    "description": "Post date label"
+  },
+  "noPosts": "لا توجد منشورات",
+  "@noPosts": {
+    "description": "No posts text"
+  },
+  "noPostsMessage": "لا توجد منشورات متاحة",
+  "@noPostsMessage": {
+    "description": "No posts message"
+  },
+  "postCreated": "تم إنشاء المنشور بنجاح",
+  "@postCreated": {
+    "description": "Post created success message"
+  },
+  "postUpdated": "تم تحديث المنشور بنجاح",
+  "@postUpdated": {
+    "description": "Post updated success message"
+  },
+  "postDeleted": "تم حذف المنشور بنجاح",
+  "@postDeleted": {
+    "description": "Post deleted success message"
+  },
+  "postCreationFailed": "فشل في إنشاء المنشور",
+  "@postCreationFailed": {
+    "description": "Post creation failed message"
+  },
+  "postUpdateFailed": "فشل في تحديث المنشور",
+  "@postUpdateFailed": {
+    "description": "Post update failed message"
+  },
+  "postDeletionFailed": "فشل في حذف المنشور",
+  "@postDeletionFailed": {
+    "description": "Post deletion failed message"
+  },
+  "requiredField": "هذا الحقل مطلوب",
+  "@requiredField": {
+    "description": "Required field validation message"
+  },
+  "invalidEmail": "عنوان البريد الإلكتروني غير صحيح",
+  "@invalidEmail": {
+    "description": "Invalid email validation message"
+  },
+  "invalidPassword": "كلمة المرور غير صحيحة",
+  "@invalidPassword": {
+    "description": "Invalid password validation message"
+  },
+  "passwordTooShort": "كلمة المرور قصيرة جداً",
+  "@passwordTooShort": {
+    "description": "Password too short validation message"
+  },
+  "passwordsDoNotMatch": "كلمات المرور غير متطابقة",
+  "@passwordsDoNotMatch": {
+    "description": "Passwords do not match validation message"
+  },
+  "invalidInput": "إدخال غير صحيح",
+  "@invalidInput": {
+    "description": "Invalid input message"
+  },
+  "networkError": "خطأ في الشبكة",
+  "@networkError": {
+    "description": "Network error message"
+  },
+  "connectionError": "خطأ في الاتصال",
+  "@connectionError": {
+    "description": "Connection error message"
+  },
+  "serverError": "خطأ في الخادم",
+  "@serverError": {
+    "description": "Server error message"
+  },
+  "timeoutError": "انتهت مهلة الطلب",
+  "@timeoutError": {
+    "description": "Timeout error message"
+  },
+  "noInternetConnection": "لا يوجد اتصال بالإنترنت",
+  "@noInternetConnection": {
+    "description": "No internet connection message"
+  },
+  "lightTheme": "فاتح",
+  "@lightTheme": {
+    "description": "Light theme text"
+  },
+  "darkTheme": "داكن",
+  "@darkTheme": {
+    "description": "Dark theme text"
+  },
+  "systemTheme": "النظام",
+  "@systemTheme": {
+    "description": "System theme text"
+  },
+  "themeSettings": "إعدادات المظهر",
+  "@themeSettings": {
+    "description": "Theme settings text"
+  },
+  "language": "اللغة",
+  "@language": {
+    "description": "Language text"
+  },
+  "english": "English",
+  "@english": {
+    "description": "English language text"
+  },
+  "arabic": "العربية",
+  "@arabic": {
+    "description": "Arabic language text"
+  },
+  "languageSettings": "إعدادات اللغة",
+  "@languageSettings": {
+    "description": "Language settings text"
+  },
+  "dataManagement": "إدارة البيانات",
+  "@dataManagement": {
+    "description": "Data management text"
+  },
+  "clearAllData": "مسح جميع البيانات",
+  "@clearAllData": {
+    "description": "Clear all data button text"
+  },
+  "clearDataConfirmation": "مسح جميع البيانات",
+  "@clearDataConfirmation": {
+    "description": "Clear data confirmation dialog title"
+  },
+  "clearDataMessage": "سيتم مسح جميع البيانات المحفوظة بما في ذلك المنشورات والإعدادات والتفضيلات. لا يمكن التراجع عن هذا الإجراء.",
+  "@clearDataMessage": {
+    "description": "Clear data confirmation message"
+  },
+  "dataClearedSuccessfully": "تم مسح جميع البيانات بنجاح",
+  "@dataClearedSuccessfully": {
+    "description": "Data cleared success message"
+  },
+  "failedToClearData": "فشل في مسح البيانات",
+  "@failedToClearData": {
+    "description": "Failed to clear data error message"
+  },
+  "loadingSettings": "جاري تحميل الإعدادات...",
+  "@loadingSettings": {
+    "description": "Loading settings text"
+  },
+  "failedToLoadSettings": "فشل في تحميل الإعدادات",
+  "@failedToLoadSettings": {
+    "description": "Failed to load settings error message"
+  },
+  "settingsLoadedSuccessfully": "تم تحميل الإعدادات بنجاح",
+  "@settingsLoadedSuccessfully": {
+    "description": "Settings loaded success message"
+  },
+  "themeUpdatedSuccessfully": "تم تحديث المظهر بنجاح",
+  "@themeUpdatedSuccessfully": {
+    "description": "Theme updated success message"
+  },
+  "failedToUpdateTheme": "فشل في تحديث المظهر",
+  "@failedToUpdateTheme": {
+    "description": "Failed to update theme error message"
+  },
+  "languageUpdatedSuccessfully": "تم تحديث اللغة بنجاح",
+  "@languageUpdatedSuccessfully": {
+    "description": "Language updated success message"
+  },
+  "failedToUpdateLanguage": "فشل في تحديث اللغة",
+  "@failedToUpdateLanguage": {
+    "description": "Failed to update language error message"
+  },
+  "refresh": "تحديث",
+  "@refresh": {
+    "description": "Refresh text"
+  },
+  "createNewPost": "إنشاء منشور جديد",
+  "@createNewPost": {
+    "description": "Create new post text"
+  },
+  "enterTitle": "أدخل العنوان",
+  "@enterTitle": {
+    "description": "Enter title placeholder"
+  },
+  "enterContent": "أدخل المحتوى",
+  "@enterContent": {
+    "description": "Enter content placeholder"
+  },
+  "submit": "إرسال",
+  "@submit": {
+    "description": "Submit button text"
+  },
+  "back": "رجوع",
+  "@back": {
+    "description": "Back button text"
+  },
+  "close": "إغلاق",
+  "@close": {
+    "description": "Close button text"
+  },
+  "ok": "موافق",
+  "@ok": {
+    "description": "OK button text"
+  },
+  "yes": "نعم",
+  "@yes": {
+    "description": "Yes button text"
+  },
+  "no": "لا",
+  "@no": {
+    "description": "No button text"
+  },
+  "confirm": "تأكيد",
+  "@confirm": {
+    "description": "Confirm button text"
+  },
+  "success": "نجح",
+  "@success": {
+    "description": "Success text"
+  },
+  "warning": "تحذير",
+  "@warning": {
+    "description": "Warning text"
+  },
+  "info": "معلومات",
+  "@info": {
+    "description": "Information text"
+  },
+  "creatingPost": "جاري إنشاء المنشور...",
+  "@creatingPost": {
+    "description": "Creating post message"
+  }
+} 

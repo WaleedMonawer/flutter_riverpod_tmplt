@@ -1,0 +1,40 @@
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_riverpod_tmplt/core/api/api_providers.dart';
+import 'package:flutter_riverpod_tmplt/core/result.dart';
+import 'package:flutter_riverpod_tmplt/core/providers.dart';
+import 'package:flutter_riverpod_tmplt/features/posts/data/datasources/posts_local_datasource.dart';
+import 'package:flutter_riverpod_tmplt/features/posts/domain/entities/post.dart';
+import 'package:flutter_riverpod_tmplt/features/posts/data/datasources/posts_remote_datasource.dart';
+import 'package:flutter_riverpod_tmplt/features/posts/data/repositories/post_repository_impl.dart';
+import 'package:flutter_riverpod_tmplt/features/posts/domain/usecases/get_posts.dart';
+import 'package:flutter_riverpod_tmplt/features/posts/presentation/controllers/posts_controller.dart';
+
+final postRemoteDSProvider = Provider((ref) => PostsRemoteDataSourceImpl(apiService: ref.read(apiServiceProvider)));
+final postLocalDSProvider = Provider((ref) => PostsLocalDataSourceImpl(ref.read(localStorageProvider)));
+final postRepoProvider = Provider((ref) => PostRepositoryImpl(remoteDataSource: ref.read(postRemoteDSProvider), localDataSource: ref.read(postLocalDSProvider)));
+final getPostsProvider = Provider((ref) => GetPosts(ref.read(postRepoProvider)));
+
+
+final postsControllerProvider = StateNotifierProvider<PostsController, AsyncValue<Result<List<Post>>>>(
+  (ref) => PostsController(ref),
+);
+
+
+
+
+
+final getPostsUseCaseProvider = Provider<GetPosts>((ref) {
+  final repo = ref.read(postRepositoryProvider);
+  return GetPosts(repo);
+});
+
+final postRepositoryProvider = Provider((ref) {
+  final remote = PostsRemoteDataSourceImpl();
+  final local = PostsLocalDataSourceImpl(ref.read(localStorageProvider));
+  return PostRepositoryImpl(
+    remoteDataSource: remote,
+    localDataSource: local,
+  );
+});
+
+
