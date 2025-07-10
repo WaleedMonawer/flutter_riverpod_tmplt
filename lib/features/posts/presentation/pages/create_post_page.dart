@@ -2,13 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import '../controllers/posts_controller.dart';
-import '../../../../core/result.dart';
+import 'package:flutter_riverpod_tmplt/features/posts/presentation/controllers/create_post_state.dart';
+import '../controllers/create_post_controller.dart';
 import '../../../../core/widgets/loading_widget.dart';
 import '../../../../core/widgets/adaptive_scaffold.dart';
 import '../../../../core/widgets/adaptive_button.dart';
 import '../../../../core/theme/adaptive_theme.dart';
-import '../../../../core/providers.dart';
 
 class CreatePostPage extends ConsumerStatefulWidget {
   const CreatePostPage({super.key});
@@ -22,7 +21,6 @@ class _CreatePostPageState extends ConsumerState<CreatePostPage> {
   final _titleController = TextEditingController();
   final _bodyController = TextEditingController();
   final _userIdController = TextEditingController(text: '1'); // Default user ID
-  bool _isLoading = false;
 
   @override
   void dispose() {
@@ -35,36 +33,13 @@ class _CreatePostPageState extends ConsumerState<CreatePostPage> {
   Future<void> _createPost() async {
     if (!_formKey.currentState!.validate()) return;
 
-    setState(() => _isLoading = true);
     final l10n = AppLocalizations.of(context)!;
-
-    try {
-      final result = await ref.read(postsControllerProvider.notifier).createPost(
-        title: _titleController.text.trim(),
-        body: _bodyController.text.trim(),
-        userId: int.parse(_userIdController.text.trim()),
-      );
-
-      if (mounted) {
-        result.when(
-          success: (post) {
-            _showMessage('${l10n.postCreated} ID: ${post.id}', isSuccess: true);
-            Navigator.pop(context, true); // Return true to indicate success
-          },
-          failure: (message) {
-            _showMessage('${l10n.postCreationFailed}: $message', isSuccess: false);
-          },
-        );
-      }
-    } catch (e) {
-      if (mounted) {
-        _showMessage('${l10n.error}: $e', isSuccess: false);
-      }
-    } finally {
-      if (mounted) {
-        setState(() => _isLoading = false);
-      }
-    }
+    
+    await ref.read(createPostControllerProvider.notifier).createPost(
+      title: _titleController.text.trim(),
+      body: _bodyController.text.trim(),
+      userId: int.parse(_userIdController.text.trim()),
+    );
   }
 
   void _showMessage(String message, {required bool isSuccess}) {
@@ -96,9 +71,24 @@ class _CreatePostPageState extends ConsumerState<CreatePostPage> {
   @override
   Widget build(BuildContext context) {
     final l10n = AppLocalizations.of(context)!;
+    final createPostState = ref.watch(createPostControllerProvider);
+    
+    // مراقبة التغييرات في الحالة
+    ref.listen<CreatePostState>(createPostControllerProvider, (previous, next) {
+      if (next.isSuccess && next.createdPost != null) {
+        _showMessage('${l10n.postCreated} ID: ${next.createdPost!.id}', isSuccess: true);
+        Navigator.pop(context, true);
+        // إعادة تعيين الحالة
+        ref.read(createPostControllerProvider.notifier).clearSuccess();
+      } else if (next.error != null) {
+        _showMessage('${l10n.postCreationFailed}: ${next.error}', isSuccess: false);
+        ref.read(createPostControllerProvider.notifier).clearError();
+      }
+    });
+    
     return AdaptiveScaffold(
       title: l10n.createNewPost,
-      body: _isLoading
+      body: createPostState.isLoading
           ? LoadingWidget(message: l10n.creatingPost)
           : Padding(
               padding: const EdgeInsets.all(16.0),
@@ -148,7 +138,7 @@ class _CreatePostPageState extends ConsumerState<CreatePostPage> {
                     AdaptiveButton(
                       text: l10n.createPost,
                       onPressed: _createPost,
-                      isLoading: _isLoading,
+                      isLoading: createPostState.isLoading,
                     ),
                   ],
                 ),

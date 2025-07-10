@@ -8,6 +8,7 @@ import '../../data/repositories/post_repository_impl.dart';
 import '../../../../core/result.dart';
 import '../../../../core/logger.dart';
 import '../../../../core/providers.dart';
+import '../../posts_provider.dart';
 
 final postsControllerProvider = StateNotifierProvider<PostsController, AsyncValue<Result<List<Post>>>>(
   (ref) => PostsController(ref),
@@ -107,11 +108,6 @@ class PostsController extends StateNotifier<AsyncValue<Result<List<Post>>>> {
 final getPostsUseCaseProvider = Provider<GetPosts>((ref) {
   final repo = ref.read(postRepositoryProvider);
   return GetPosts(repo);
-});
-
-final createPostUseCaseProvider = Provider<CreatePost>((ref) {
-  final repo = ref.read(postRepositoryProvider);
-  return CreatePost(repo);
 });
 
 final postRepositoryProvider = Provider((ref) {
