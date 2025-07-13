@@ -1,5 +1,6 @@
 import 'package:connectivity_plus/connectivity_plus.dart';
-import '../result.dart';
+import 'package:flutter_riverpod_tmplt/core/domain/entities/result.dart';
+
 
 abstract class NetworkInfo {
   Future<Result<bool>> get isConnected;

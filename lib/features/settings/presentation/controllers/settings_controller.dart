@@ -2,11 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_riverpod_tmplt/features/settings/presentation/controllers/settings_state.dart';
 
-import '../../../../core/providers.dart';
+import '../../../../core/providers/local_providers.dart';
 import '../../../../core/theme/theme_controller.dart';
 import '../../../../core/theme/app_theme.dart';
 import '../../../../core/logger.dart';
-import '../../../../core/result.dart';
+import 'package:flutter_riverpod_tmplt/core/domain/entities/result.dart';
 import '../../../posts/presentation/controllers/posts_controller.dart';
 
 final settingsControllerProvider = StateNotifierProvider<SettingsController, AsyncValue<SettingsState>>(

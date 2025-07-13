@@ -3,7 +3,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_riverpod_tmplt/features/settings/presentation/controllers/settings_state.dart';
-import '../../../../core/providers.dart';
+import '../../../../core/providers/local_providers.dart';
 import '../../../../core/theme/theme_controller.dart';
 import '../../../../core/theme/app_theme.dart';
 import '../../../../core/theme/adaptive_theme.dart';
@@ -11,7 +11,7 @@ import '../../../../core/widgets/adaptive_scaffold.dart';
 import '../../../../core/widgets/adaptive_button.dart';
 import '../../../../core/widgets/loading_widget.dart';
 import '../../../../core/widgets/error_widget.dart';
-import '../../../../core/result.dart';
+import 'package:flutter_riverpod_tmplt/core/domain/entities/result.dart'; 
 import '../controllers/settings_controller.dart';
 
 class SettingsPage extends ConsumerWidget {

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'app_theme.dart';
-import '../providers.dart';
+import '../providers/local_providers.dart';
 
 final themeControllerProvider = StateNotifierProvider<ThemeController, AppThemeType>(
   (ref) => ThemeController(ref),

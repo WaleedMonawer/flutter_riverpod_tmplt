@@ -1,7 +1,7 @@
 import 'dart:convert';
 import '../models/post_model.dart';
-import '../../../../core/storage/local_storage.dart';
-import '../../../../core/result.dart';
+import '../../../../core/data/local/storage/local_storage.dart';
+import 'package:flutter_riverpod_tmplt/core/domain/entities/result.dart';
 import '../../../../core/logger.dart';
 
 abstract class PostsLocalDataSource {

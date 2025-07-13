@@ -3,7 +3,7 @@ import '../../domain/repositories/post_repository.dart';
 import '../datasources/posts_remote_datasource.dart';
 import '../datasources/posts_local_datasource.dart';
 import '../models/post_model.dart';
-import '../../../../core/result.dart';
+import 'package:flutter_riverpod_tmplt/core/domain/entities/result.dart';
 import '../../../../core/logger.dart';
 
 class PostRepositoryImpl implements PostRepository {
@@ -96,6 +96,128 @@ class PostRepositoryImpl implements PostRepository {
       );
     } catch (e) {
       Logger.error('Unexpected error creating post', e);
+      return Result.failure('Repository error: $e');
+    }
+  }
+
+  @override
+  Future<Result<Post>> updatePost(Post post) async {
+    try {
+      Logger.info('Updating post: ${post.id}');
+      
+      final postModel = PostModel(
+        id: post.id,
+        title: post.title,
+        body: post.body,
+        userId: post.userId,
+      );
+      
+      final remoteResult = await remoteDataSource.updatePost(postModel);
+      
+      return remoteResult.when(
+        success: (updatedPostModel) {
+          Logger.info('Successfully updated post with ID: ${updatedPostModel.id}');
+          return Result.success(updatedPostModel.toEntity());
+        },
+        failure: (message) {
+          Logger.error('Failed to update post: $message');
+          return Result.failure(message);
+        },
+      );
+    } catch (e) {
+      Logger.error('Unexpected error updating post', e);
+      return Result.failure('Repository error: $e');
+    }
+  }
+
+  @override
+  Future<Result<void>> deletePost(int id) async {
+    try {
+      Logger.info('Deleting post: $id');
+      
+      final remoteResult = await remoteDataSource.deletePost(id);
+      
+      return remoteResult.when(
+        success: (_) {
+          Logger.info('Successfully deleted post with ID: $id');
+          return const Result.success(null);
+        },
+        failure: (message) {
+          Logger.error('Failed to delete post: $message');
+          return Result.failure(message);
+        },
+      );
+    } catch (e) {
+      Logger.error('Unexpected error deleting post', e);
+      return Result.failure('Repository error: $e');
+    }
+  }
+
+  @override
+  Future<Result<Post>> getPostById(int id) async {
+    try {
+      Logger.info('Getting post by ID: $id');
+      
+      final remoteResult = await remoteDataSource.getPostById(id);
+      
+      return remoteResult.when(
+        success: (postModel) {
+          Logger.info('Successfully retrieved post with ID: ${postModel.id}');
+          return Result.success(postModel.toEntity());
+        },
+        failure: (message) {
+          Logger.error('Failed to get post by ID: $message');
+          return Result.failure(message);
+        },
+      );
+    } catch (e) {
+      Logger.error('Unexpected error getting post by ID', e);
+      return Result.failure('Repository error: $e');
+    }
+  }
+
+  @override
+  Future<Result<List<Post>>> getPostsByUserId(int userId) async {
+    try {
+      Logger.info('Getting posts by user ID: $userId');
+      
+      final remoteResult = await remoteDataSource.getPostsByUserId(userId);
+      
+      return remoteResult.when(
+        success: (postModels) {
+          Logger.info('Successfully retrieved ${postModels.length} posts for user: $userId');
+          return Result.success(postModels.map((e) => e.toEntity()).toList());
+        },
+        failure: (message) {
+          Logger.error('Failed to get posts by user ID: $message');
+          return Result.failure(message);
+        },
+      );
+    } catch (e) {
+      Logger.error('Unexpected error getting posts by user ID', e);
+      return Result.failure('Repository error: $e');
+    }
+  }
+
+  @override
+  Future<Result<List<Post>>> searchPosts(String query) async {
+    try {
+      Logger.info('Searching posts with query: $query');
+      
+      final remoteResult = await remoteDataSource.searchPosts(query);
+      
+      return remoteResult.when(
+        success: (postModels) {
+          Logger.info('Successfully found ${postModels.length} posts for query: $query');
+          return Result.success(postModels.map((e) => e.toEntity()).toList());
+        },
+        failure: (message) {
+          Logger.error('Failed to search posts: $message');
+          return Result.failure(message);
+        },
+      );
+    } catch (e) {
+      Logger.error('Unexpected error searching posts', e);
       return Result.failure('Repository error: $e');
     }
   }

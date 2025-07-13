@@ -5,9 +5,9 @@ import '../../domain/usecases/create_post.dart';
 import '../../data/datasources/posts_remote_datasource.dart';
 import '../../data/datasources/posts_local_datasource.dart';
 import '../../data/repositories/post_repository_impl.dart';
-import '../../../../core/result.dart';
+import 'package:flutter_riverpod_tmplt/core/domain/entities/result.dart';
 import '../../../../core/logger.dart';
-import '../../../../core/providers.dart';
+import '../../../../core/providers/local_providers.dart';
 import '../../posts_provider.dart';
 
 final postsControllerProvider = StateNotifierProvider<PostsController, AsyncValue<Result<List<Post>>>>(

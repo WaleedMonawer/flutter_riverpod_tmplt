@@ -1,13 +1,18 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../models/post_model.dart';
-import '../../../../core/api/api_service.dart';
-import '../../../../core/api/api_providers.dart';
-import '../../../../core/result.dart';
+import '../../../../core/data/api/api_service.dart';
+import '../../../../core/providers/api_providers.dart';
+import 'package:flutter_riverpod_tmplt/core/domain/entities/result.dart';
 import '../../../../core/logger.dart';
 
 abstract class PostsRemoteDataSource {
   Future<Result<List<PostModel>>> getPosts();
   Future<Result<PostModel>> createPost(PostModel post);
+  Future<Result<PostModel>> updatePost(PostModel post);
+  Future<Result<void>> deletePost(int id);
+  Future<Result<PostModel>> getPostById(int id);
+  Future<Result<List<PostModel>>> getPostsByUserId(int userId);
+  Future<Result<List<PostModel>>> searchPosts(String query);
 }
 
 class PostsRemoteDataSourceImpl implements PostsRemoteDataSource {
@@ -32,5 +37,41 @@ class PostsRemoteDataSourceImpl implements PostsRemoteDataSource {
   Future<Result<PostModel>> createPost(PostModel post) async {
     Logger.info('RemoteDataSource: Creating post via API service');
     return await _apiService.createPost(post);
+  }
+
+  @override
+  Future<Result<PostModel>> updatePost(PostModel post) async {
+    Logger.info('RemoteDataSource: Updating post via API service');
+    return await _apiService.updatePost(post.id, post);
+  }
+
+  @override
+  Future<Result<void>> deletePost(int id) async {
+    Logger.info('RemoteDataSource: Deleting post via API service');
+    final result = await _apiService.deletePost(id);
+    return result.when(
+      success: (_) => const Result.success(null),
+      failure: (error) => Result.failure(error),
+    );
+  }
+
+  @override
+  Future<Result<PostModel>> getPostById(int id) async {
+    Logger.info('RemoteDataSource: Getting post by ID via API service');
+    return await _apiService.getPost(id);
+  }
+
+  @override
+  Future<Result<List<PostModel>>> getPostsByUserId(int userId) async {
+    Logger.info('RemoteDataSource: Getting posts by user ID via API service');
+    return await _apiService.getPostsByUserId(userId);
+  }
+
+  @override
+  Future<Result<List<PostModel>>> searchPosts(String query) async {
+    Logger.info('RemoteDataSource: Searching posts via API service');
+    // For now, return empty list since search is not implemented in API service
+    // This can be implemented later when the API supports search
+    return const Result.success([]);
   }
 } 

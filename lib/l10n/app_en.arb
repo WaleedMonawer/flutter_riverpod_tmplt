@@ -248,6 +248,130 @@
   "@failedToUpdateTheme": {
     "description": "Failed to update theme error message"
   },
+  "home": "Home",
+  "@home": {
+    "description": "Home page title"
+  },
+  "welcomeMessage": "Welcome to the App",
+  "@welcomeMessage": {
+    "description": "Welcome message on home page"
+  },
+  "chooseScreenMessage": "Choose the screen you want to navigate to",
+  "@chooseScreenMessage": {
+    "description": "Message to choose screen"
+  },
+  "counter": "Counter",
+  "@counter": {
+    "description": "Counter page title"
+  },
+  "counterExample": "Counter Example",
+  "@counterExample": {
+    "description": "Counter example subtitle"
+  },
+  "asyncCounter": "Async Counter",
+  "@asyncCounter": {
+    "description": "Async counter title"
+  },
+  "counterWithOffset": "Counter with Offset (+5)",
+  "@counterWithOffset": {
+    "description": "Counter with offset title"
+  },
+  "setCustomValue": "Set Custom Value",
+  "@setCustomValue": {
+    "description": "Set custom value title"
+  },
+  "enterValue": "Enter value",
+  "@enterValue": {
+    "description": "Enter value label"
+  },
+  "setValue": "Set Value",
+  "@setValue": {
+    "description": "Set value button"
+  },
+  "set100": "Set 100",
+  "@set100": {
+    "description": "Set 100 button"
+  },
+  "reset": "Reset",
+  "@reset": {
+    "description": "Reset button"
+  },
+  "value": "Value",
+  "@value": {
+    "description": "Value label"
+  },
+  "todos": "Todos",
+  "@todos": {
+    "description": "Todos page title"
+  },
+  "todoManagement": "Todo Management",
+  "@todoManagement": {
+    "description": "Todo management subtitle"
+  },
+  "addNewTodo": "Add new todo",
+  "@addNewTodo": {
+    "description": "Add new todo label"
+  },
+  "totalTodos": "Total Todos",
+  "@totalTodos": {
+    "description": "Total todos label"
+  },
+  "completed": "Completed",
+  "@completed": {
+    "description": "Completed label"
+  },
+  "pending": "Pending",
+  "@pending": {
+    "description": "Pending label"
+  },
+  "noTodos": "No todos",
+  "@noTodos": {
+    "description": "No todos message"
+  },
+  "profileManagement": "Profile Management",
+  "@profileManagement": {
+    "description": "Profile management subtitle"
+  },
+  "editProfile": "Edit Profile",
+  "@editProfile": {
+    "description": "Edit profile title"
+  },
+  "name": "Name",
+  "@name": {
+    "description": "Name label"
+  },
+  "email": "Email",
+  "@email": {
+    "description": "Email label"
+  },
+  "updateProfile": "Update Profile",
+  "@updateProfile": {
+    "description": "Update profile button"
+  },
+  "postsCount": "Posts",
+  "@postsCount": {
+    "description": "Posts count label"
+  },
+  "followersCount": "Followers",
+  "@followersCount": {
+    "description": "Followers count label"
+  },
+  "followingCount": "Following",
+  "@followingCount": {
+    "description": "Following count label"
+  },
+  "loading": "Loading...",
+  "@loading": {
+    "description": "Loading text"
+  },
+  "refresh": "Refresh",
+  "@refresh": {
+    "description": "Refresh button text"
+  },
+  "createNewPost": "Create New Post",
+  "@createNewPost": {
+    "description": "Create new post button text"
+  },
   "languageUpdatedSuccessfully": "Language updated successfully",
   "@languageUpdatedSuccessfully": {
     "description": "Language updated success message"
@@ -315,5 +439,9 @@
   "creatingPost": "Creating post...",
   "@creatingPost": {
     "description": "Creating post message"
+  },
+  "postsManagement": "Posts Management",
+  "@postsManagement": {
+    "description": "Posts management subtitle"
   }
 } 

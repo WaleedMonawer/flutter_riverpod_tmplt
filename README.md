@@ -11,6 +11,13 @@ A comprehensive Flutter project template built with Clean Architecture principle
 - **Result Pattern** for error handling
 - **Repository Pattern** for data access
 
+### 🏠 **Core Features**
+- **Home Dashboard** with navigation cards to all features
+- **Profile Management** with user data and statistics
+- **Counter Feature** with state management demonstration
+- **Todo Management** with CRUD operations
+- **Settings Management** with theme and language controls
+
 ### 🌐 **API & Networking**
 - **Dio** for HTTP requests with interceptors
 - **Retrofit** for type-safe API clients
@@ -24,6 +31,7 @@ A comprehensive Flutter project template built with Clean Architecture principle
 - **Responsive design** for all screen sizes
 - **Loading states** and error handling
 - **Pull-to-refresh** functionality
+- **Grid-based navigation** on home screen
 
 ### 📊 **Analytics & Tracking**
 - **Firebase Analytics** integration (ready for implementation)
@@ -52,6 +60,7 @@ A comprehensive Flutter project template built with Clean Architecture principle
 - **Date/time formatting**
 - **Number formatting**
 - **Pluralization support**
+- **Complete localization** for all screens and features
 
 ### 💾 **State Persistence**
 - **Local storage** for app state
@@ -89,20 +98,76 @@ lib/
 │   ├── theme/              # Theme management
 │   └── widgets/            # Reusable widgets
 ├── features/
-│   └── posts/
-│       ├── data/
-│       │   ├── datasources/
-│       │   ├── models/
-│       │   └── repositories/
-│       ├── domain/
-│       │   ├── entities/
-│       │   ├── repositories/
-│       │   └── usecases/
+│   ├── posts/              # Posts feature
+│   │   ├── data/
+│   │   │   ├── datasources/
+│   │   │   ├── models/
+│   │   │   └── repositories/
+│   │   ├── domain/
+│   │   │   ├── entities/
+│   │   │   ├── repositories/
+│   │   │   └── usecases/
+│   │   └── presentation/
+│   │       ├── controllers/
+│   │       └── pages/
+│   ├── profile/            # Profile feature
+│   │   └── presentation/
+│   │       ├── controllers/
+│   │       └── pages/
+│   ├── counter/            # Counter feature
+│   │   └── presentation/
+│   │       ├── controllers/
+│   │       └── pages/
+│   ├── todos/              # Todo feature
+│   │   ├── data/
+│   │   │   ├── models/
+│   │   │   └── repositories/
+│   │   ├── domain/
+│   │   │   ├── entities/
+│   │   │   ├── repositories/
+│   │   │   └── usecases/
+│   │   └── presentation/
+│   │       ├── controllers/
+│   │       └── pages/
+│   └── settings/           # Settings feature
 │       └── presentation/
 │           ├── controllers/
 │           └── pages/
+├── l10n/                   # Localization files
 └── main.dart
 ```
+
+## 🆕 New Features Added
+
+### 🏠 **Home Dashboard**
+- **Grid-based navigation** with beautiful cards
+- **Quick access** to all app features
+- **Theme and language controls** in one place
+- **Responsive design** for all screen sizes
+
+### 👤 **Profile Management**
+- **User profile display** with avatar and statistics
+- **Editable profile information** (name, email)
+- **Social statistics** (posts, followers, following)
+- **Loading states** and error handling
+
+### 🔢 **Counter Feature**
+- **State management demonstration** with Riverpod
+- **Increment/decrement** functionality
+- **Persistent state** across app sessions
+- **Clean UI** with adaptive design
+
+### ✅ **Todo Management**
+- **CRUD operations** for todo items
+- **Freezed models** with JSON serialization
+- **Local storage** for todo persistence
+- **Complete Clean Architecture** implementation
+
+### 🌍 **Complete Localization**
+- **Full Arabic translation** for all screens
+- **RTL layout support** for Arabic
+- **Dynamic language switching** without app restart
+- **Localized dates, numbers, and text**
 
 ## 🚀 Getting Started
 
@@ -186,6 +251,66 @@ ENABLE_NOTIFICATIONS=true
 ```
 
 ## 📱 Usage Examples
+
+### Home Dashboard Navigation
+```dart
+// Navigate to different features from home
+Navigator.pushNamed(context, '/posts');
+Navigator.pushNamed(context, '/profile');
+Navigator.pushNamed(context, '/counter');
+Navigator.pushNamed(context, '/todos');
+```
+
+### Profile Management
+```dart
+// Load profile data
+final profileController = ref.read(profileControllerProvider.notifier);
+await profileController.loadProfile();
+
+// Update profile
+await profileController.updateProfile(
+  name: 'New Name',
+  email: 'new@email.com',
+);
+```
+
+### Counter State Management
+```dart
+// Access counter state
+final counter = ref.watch(counterControllerProvider);
+
+// Increment/decrement
+final controller = ref.read(counterControllerProvider.notifier);
+controller.increment();
+controller.decrement();
+```
+
+### Todo Management
+```dart
+// Add new todo
+final todoController = ref.read(todoControllerProvider.notifier);
+await todoController.addTodo('New Task');
+
+// Toggle todo completion
+await todoController.toggleTodo(todoId);
+
+// Delete todo
+await todoController.deleteTodo(todoId);
+```
+
+### Localization
+```dart
+// Access localized strings
+final l10n = AppLocalizations.of(context);
+Text(l10n.homeTitle);
+Text(l10n.profileTitle);
+Text(l10n.counterTitle);
+Text(l10n.todosTitle);
+
+// Change language
+final localeController = ref.read(localeProvider.notifier);
+localeController.toggleLocale();
+```
 
 ### Analytics Tracking
 ```dart
@@ -344,6 +469,27 @@ For support and questions:
 - [ ] Advanced animations
 - [ ] Performance monitoring
 - [ ] Crash reporting
+
+## 📝 Recent Updates
+
+### Version 2.0.0 (Latest)
+- ✨ **Added Home Dashboard** with grid-based navigation
+- 👤 **Added Profile Management** with user data and statistics
+- 🔢 **Added Counter Feature** with state management demo
+- ✅ **Added Todo Management** with CRUD operations
+- 🌍 **Complete Localization** support (English & Arabic)
+- 🎨 **Enhanced UI/UX** with adaptive design
+- 🏗️ **Improved Architecture** with new features
+- 📱 **Better Navigation** with centralized controls
+
+### Version 1.0.0
+- 🏗️ **Initial Clean Architecture** setup
+- 🔄 **Riverpod State Management** implementation
+- 📊 **Posts Feature** with API integration
+- 🌐 **API Client** with Retrofit and Dio
+- 💾 **State Persistence** with local storage
+- 🎨 **Theme Management** with light/dark mode
+- 🌍 **Basic Localization** setup
 
 ---
 

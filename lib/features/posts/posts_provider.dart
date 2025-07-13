@@ -1,11 +1,12 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:flutter_riverpod_tmplt/core/api/api_providers.dart';
-import 'package:flutter_riverpod_tmplt/core/result.dart';
-import 'package:flutter_riverpod_tmplt/core/providers.dart';
+import 'package:flutter_riverpod_tmplt/core/providers/api_providers.dart';
+import 'package:flutter_riverpod_tmplt/core/domain/entities/result.dart';
+import 'package:flutter_riverpod_tmplt/core/providers/local_providers.dart';
 import 'package:flutter_riverpod_tmplt/features/posts/data/datasources/posts_local_datasource.dart';
 import 'package:flutter_riverpod_tmplt/features/posts/domain/entities/post.dart';
 import 'package:flutter_riverpod_tmplt/features/posts/data/datasources/posts_remote_datasource.dart';
 import 'package:flutter_riverpod_tmplt/features/posts/data/repositories/post_repository_impl.dart';
+import 'package:flutter_riverpod_tmplt/features/posts/domain/repositories/post_repository.dart';
 import 'package:flutter_riverpod_tmplt/features/posts/domain/usecases/get_posts.dart';
 import 'package:flutter_riverpod_tmplt/features/posts/domain/usecases/create_post.dart';
 import 'package:flutter_riverpod_tmplt/features/posts/presentation/controllers/posts_controller.dart';
@@ -29,8 +30,8 @@ final createPostUseCaseProvider = Provider<CreatePost>((ref) {
   return CreatePost(repo);
 });
 
-final postRepositoryProvider = Provider((ref) {
-  final remote = PostsRemoteDataSourceImpl();
+final postRepositoryProvider = Provider<PostRepository>((ref) {
+  final remote = PostsRemoteDataSourceImpl(apiService: ref.read(apiServiceProvider));
   final local = PostsLocalDataSourceImpl(ref.read(localStorageProvider));
   return PostRepositoryImpl(
     remoteDataSource: remote,

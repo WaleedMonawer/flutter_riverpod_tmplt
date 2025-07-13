@@ -6,13 +6,10 @@ import '../controllers/posts_controller.dart';
 import '../../../../core/widgets/loading_widget.dart';
 import '../../../../core/widgets/error_widget.dart';
 import '../../../../core/widgets/adaptive_scaffold.dart';
-import '../../../../core/result.dart';
-import '../../../../core/theme/theme_controller.dart';
-import '../../../../core/theme/app_theme.dart';
+import 'package:flutter_riverpod_tmplt/core/domain/entities/result.dart';
 import '../../../../core/theme/adaptive_theme.dart';
-import '../../../../core/providers.dart';
+import '../../../../core/providers/local_providers.dart';
 import 'create_post_page.dart';
-import '../../../settings/presentation/pages/settings_page.dart';
 
 class PostsPage extends ConsumerWidget {
   const PostsPage({super.key});
@@ -20,50 +17,17 @@ class PostsPage extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final postsState = ref.watch(postsControllerProvider);
-    final currentTheme = ref.watch(themeControllerProvider);
-    final currentLocale = ref.watch(localeProvider);
     final l10n = AppLocalizations.of(context)!;
     
     return AdaptiveScaffold(
       title: l10n.posts,
       actions: [
-                  // Language Toggle Button
-          IconButton(
-            icon: const Icon(Icons.language),
-            onPressed: () {
-              ref.read(localeProvider.notifier).toggleLocale();
-            },
-            tooltip: l10n.language,
-          ),
-        // Theme Toggle Button
+        // Refresh Button
         IconButton(
-          icon: Icon(
-            currentTheme == AppThemeType.light ? Icons.dark_mode : Icons.light_mode,
-          ),
-          onPressed: () {
-            ref.read(themeControllerProvider.notifier).toggleTheme();
-          },
-          tooltip: l10n.themeSettings,
+          icon: const Icon(Icons.refresh),
+          onPressed: () => ref.read(postsControllerProvider.notifier).refreshPosts(),
+          tooltip: l10n.refresh,
         ),
-                  // Refresh Button
-          IconButton(
-            icon: const Icon(Icons.refresh),
-            onPressed: () => ref.read(postsControllerProvider.notifier).refreshPosts(),
-            tooltip: l10n.refresh,
-          ),
-          // Settings Button
-          IconButton(
-            icon: const Icon(Icons.settings),
-            onPressed: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => const SettingsPage(),
-                ),
-              );
-            },
-            tooltip: l10n.settings,
-          ),
       ],
       body: postsState.when(
         data: (result) => result.when(

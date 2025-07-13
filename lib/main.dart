@@ -3,18 +3,16 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'features/posts/presentation/pages/posts_page.dart';
 import 'core/theme/theme_controller.dart';
 import 'core/theme/adaptive_theme.dart';
-import 'core/storage/local_storage.dart';
-import 'core/providers.dart';
-import 'core/http_client.dart';
+import 'core/data/local/storage/local_storage.dart';
+import 'core/providers/local_providers.dart';
+import 'core/routing/app_router.dart';
+
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  
-  // Initialize HttpClient with logging interceptor
-  HttpClient.initialize();
+
   
   // Initialize LocalStorage
   final localStorage = await SharedPreferencesStorage.getInstance();
@@ -37,11 +35,13 @@ class MyApp extends ConsumerWidget {
     final themeType = ref.watch(themeControllerProvider);
     final locale = ref.watch(localeProvider);
     
+    final router = ref.watch(routerProvider);
+    
     if (AdaptiveTheme.isIOS) {
-      return CupertinoApp(
+      return CupertinoApp.router(
         title: 'Clean Architecture Riverpod',
         theme: AdaptiveTheme.getCupertinoTheme(themeType),
-        home: const PostsPage(),
+        routerConfig: router,
         debugShowCheckedModeBanner: false,
         locale: locale,
         localizationsDelegates: const [
@@ -53,10 +53,10 @@ class MyApp extends ConsumerWidget {
         supportedLocales: AppLocalizations.supportedLocales,
       );
     } else {
-      return MaterialApp(
+      return MaterialApp.router(
         title: 'Clean Architecture Riverpod',
         theme: AdaptiveTheme.getMaterialTheme(themeType),
-        home: const PostsPage(),
+        routerConfig: router,
         debugShowCheckedModeBanner: false,
         locale: locale,
         localizationsDelegates: const [

@@ -1,0 +1,30 @@
+targets:
+  $default:
+    builders:
+      freezed:
+        generate_for:
+          include:
+            - lib/features/**/*.dart
+            - lib/core/**/*.dart
+        options:
+          union_key: "type"
+          union_value_case: "snake"
+          map: false
+          when: false
+          copy_with: true
+          to_string: true
+          from_json: true
+          to_json: true
+          equal: true
+          include_if_null: false
+      json_serializable:
+        options:
+          include_if_null: false
+          explicit_to_json: true
+        
+      retrofit_generator:
+        options:
+          type: dio
+      riverpod_generator:riverpod_generator:
+        options:
+          provider_name_suffix: "Provider" 

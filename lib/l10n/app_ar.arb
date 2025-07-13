@@ -248,6 +248,126 @@
   "@failedToUpdateTheme": {
     "description": "Failed to update theme error message"
   },
+  "home": "الرئيسية",
+  "@home": {
+    "description": "Home page title"
+  },
+  "welcomeMessage": "مرحباً بك في التطبيق",
+  "@welcomeMessage": {
+    "description": "Welcome message on home page"
+  },
+  "chooseScreenMessage": "اختر الشاشة التي تريد الانتقال إليها",
+  "@chooseScreenMessage": {
+    "description": "Message to choose screen"
+  },
+  "counter": "العداد",
+  "@counter": {
+    "description": "Counter page title"
+  },
+  "counterExample": "مثال العداد",
+  "@counterExample": {
+    "description": "Counter example subtitle"
+  },
+  "asyncCounter": "عداد غير متزامن",
+  "@asyncCounter": {
+    "description": "Async counter title"
+  },
+  "counterWithOffset": "العداد مع إزاحة (+5)",
+  "@counterWithOffset": {
+    "description": "Counter with offset title"
+  },
+  "setCustomValue": "تعيين قيمة مخصصة",
+  "@setCustomValue": {
+    "description": "Set custom value title"
+  },
+  "enterValue": "أدخل قيمة",
+  "@enterValue": {
+    "description": "Enter value label"
+  },
+  "setValue": "تعيين",
+  "@setValue": {
+    "description": "Set value button"
+  },
+  "set100": "تعيين 100",
+  "@set100": {
+    "description": "Set 100 button"
+  },
+  "reset": "إعادة تعيين",
+  "@reset": {
+    "description": "Reset button"
+  },
+  "value": "القيمة",
+  "@value": {
+    "description": "Value label"
+  },
+  "todos": "المهام",
+  "@todos": {
+    "description": "Todos page title"
+  },
+  "todoManagement": "إدارة المهام",
+  "@todoManagement": {
+    "description": "Todo management subtitle"
+  },
+  "addNewTodo": "أضف مهمة جديدة",
+  "@addNewTodo": {
+    "description": "Add new todo label"
+  },
+  "totalTodos": "إجمالي المهام",
+  "@totalTodos": {
+    "description": "Total todos label"
+  },
+  "completed": "مكتملة",
+  "@completed": {
+    "description": "Completed label"
+  },
+  "pending": "معلقة",
+  "@pending": {
+    "description": "Pending label"
+  },
+  "noTodos": "لا توجد مهام",
+  "@noTodos": {
+    "description": "No todos message"
+  },
+  "profileManagement": "إدارة الملف الشخصي",
+  "@profileManagement": {
+    "description": "Profile management subtitle"
+  },
+  "editProfile": "تعديل الملف الشخصي",
+  "@editProfile": {
+    "description": "Edit profile title"
+  },
+  "name": "الاسم",
+  "@name": {
+    "description": "Name label"
+  },
+  "email": "البريد الإلكتروني",
+  "@email": {
+    "description": "Email label"
+  },
+  "updateProfile": "تحديث الملف الشخصي",
+  "@updateProfile": {
+    "description": "Update profile button"
+  },
+  "postsCount": "المنشورات",
+  "@postsCount": {
+    "description": "Posts count label"
+  },
+  "followersCount": "المتابعون",
+  "@followersCount": {
+    "description": "Followers count label"
+  },
+  "followingCount": "المتابَعون",
+  "@followingCount": {
+    "description": "Following count label"
+  },
+  "refresh": "تحديث",
+  "@refresh": {
+    "description": "Refresh button text"
+  },
+  "createNewPost": "إنشاء منشور جديد",
+  "@createNewPost": {
+    "description": "Create new post button text"
+  },
   "languageUpdatedSuccessfully": "تم تحديث اللغة بنجاح",
   "@languageUpdatedSuccessfully": {
     "description": "Language updated success message"
@@ -315,5 +435,9 @@
   "creatingPost": "جاري إنشاء المنشور...",
   "@creatingPost": {
     "description": "Creating post message"
+  },
+  "postsManagement": "إدارة المنشورات",
+  "@postsManagement": {
+    "description": "Posts management subtitle"
   }
 } 
