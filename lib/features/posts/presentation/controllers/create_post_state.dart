@@ -1,4 +1,4 @@
-import 'package:flutter_riverpod_tmplt/features/posts/domain/entities/post.dart';
+import 'package:flutter_riverpod_tmplt/core/domain/entities/post.dart';
 
 class CreatePostState {
   final bool isLoading;

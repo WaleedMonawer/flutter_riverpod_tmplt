@@ -1,9 +1,9 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_riverpod_tmplt/core/routing/app_router.dart';
 import 'package:go_router/go_router.dart';
-import 'package:flutter_riverpod_tmplt/core/data/local/storage/local_storage.dart';
-import 'package:flutter_riverpod_tmplt/core/data/local/persistence/state_persistence_service.dart';
+import 'package:flutter_riverpod_tmplt/core/data/datasources/local/storage/local_storage.dart';
+import 'package:flutter_riverpod_tmplt/core/services/state_persistence/state_persistence_service.dart';
+import 'package:flutter_riverpod_tmplt/core/presentation/navigation/app_router.dart';
 
 // Global providers that can be overridden in main.dart
 final localStorageProvider = Provider<LocalStorage>((ref) {

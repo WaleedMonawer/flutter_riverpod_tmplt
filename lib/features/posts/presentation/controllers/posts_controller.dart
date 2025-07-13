@@ -1,14 +1,14 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import '../../domain/entities/post.dart';
+import 'package:flutter_riverpod_tmplt/core/domain/entities/post.dart';
 import '../../domain/usecases/get_posts.dart';
 import '../../domain/usecases/create_post.dart';
 import '../../data/datasources/posts_remote_datasource.dart';
 import '../../data/datasources/posts_local_datasource.dart';
 import '../../data/repositories/post_repository_impl.dart';
 import 'package:flutter_riverpod_tmplt/core/domain/entities/result.dart';
-import '../../../../core/logger.dart';
-import '../../../../core/providers/local_providers.dart';
-import '../../posts_provider.dart';
+import 'package:flutter_riverpod_tmplt/core/common/utils/logger.dart';
+import 'package:flutter_riverpod_tmplt/core/providers/local_providers.dart';
+import 'package:flutter_riverpod_tmplt/features/posts/posts_provider.dart';
 
 final postsControllerProvider = StateNotifierProvider<PostsController, AsyncValue<Result<List<Post>>>>(
   (ref) => PostsController(ref),

@@ -1,9 +1,9 @@
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/mockito.dart';
-import 'package:flutter_riverpod_tmplt/features/posts/domain/entities/post.dart';
+import 'package:flutter_riverpod_tmplt/core/domain/entities/post.dart';
 import 'package:flutter_riverpod_tmplt/features/posts/domain/repositories/post_repository.dart';
 import 'package:flutter_riverpod_tmplt/features/posts/domain/usecases/get_posts.dart';
-import 'package:flutter_riverpod_tmplt/core/result.dart';
+import 'package:flutter_riverpod_tmplt/core/domain/entities/result.dart';
 
 import 'get_posts_test.mocks.dart';
 

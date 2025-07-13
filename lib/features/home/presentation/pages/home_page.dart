@@ -1,12 +1,14 @@
+// ignore_for_file: unused_import
+
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import '../../../../core/theme/theme_controller.dart';
-import '../../../../core/theme/app_theme.dart';
-import '../../../../core/theme/adaptive_theme.dart';
-import '../../../../core/providers/local_providers.dart';
-import '../../../../core/routing/app_router.dart';
+import 'package:flutter_riverpod_tmplt/core/presentation/theme/theme_controller.dart';
+import 'package:flutter_riverpod_tmplt/core/presentation/theme/app_theme.dart';
+import 'package:flutter_riverpod_tmplt/core/presentation/theme/adaptive_theme.dart';
+import 'package:flutter_riverpod_tmplt/core/providers/local_providers.dart';
+import 'package:flutter_riverpod_tmplt/core/presentation/navigation/app_router.dart';
 
 class HomePage extends ConsumerWidget {
   const HomePage({super.key});

@@ -1,4 +1,4 @@
-import 'package:flutter_riverpod_tmplt/core/theme/app_theme.dart';
+import 'package:flutter_riverpod_tmplt/core/presentation/theme/app_theme.dart';
 
 class SettingsState {
   final AppThemeType currentTheme;

@@ -2,12 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:flutter_riverpod_tmplt/core/presentation/widgets/common/loading_widget.dart';
 import 'package:flutter_riverpod_tmplt/features/posts/presentation/controllers/create_post_state.dart';
-import '../controllers/create_post_controller.dart';
-import '../../../../core/widgets/loading_widget.dart';
-import '../../../../core/widgets/adaptive_scaffold.dart';
-import '../../../../core/widgets/adaptive_button.dart';
-import '../../../../core/theme/adaptive_theme.dart';
+import 'package:flutter_riverpod_tmplt/features/posts/presentation/controllers/create_post_controller.dart';
+import 'package:flutter_riverpod_tmplt/core/presentation/widgets/adaptive/adaptive_scaffold.dart';
+import 'package:flutter_riverpod_tmplt/core/presentation/widgets/adaptive/adaptive_button.dart';
+import 'package:flutter_riverpod_tmplt/core/presentation/theme/adaptive_theme.dart';
 
 class CreatePostPage extends ConsumerStatefulWidget {
   const CreatePostPage({super.key});

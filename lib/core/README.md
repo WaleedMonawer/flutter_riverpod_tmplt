@@ -1,285 +1,244 @@
-# 🏗️ Core Module Structure
+# Core Module
 
-## 📋 نظرة عامة
+This directory contains the core functionality of the Flutter application, organized following Clean Architecture principles with improved separation of concerns.
 
-مجلد `core` يحتوي على جميع المكونات الأساسية المشتركة في التطبيق، منظمة حسب مبادئ Clean Architecture وأفضل الممارسات.
-
-## 📁 الهيكل الجديد
+## 📁 Structure
 
 ```
 lib/core/
-├── 📁 common/                    # المكونات المشتركة العامة
-│   ├── 📁 constants/            # الثوابت العامة
+├── common/                    # Common utilities, constants, and exceptions
+│   ├── constants/            # Application constants
 │   │   ├── app_constants.dart
 │   │   ├── api_constants.dart
-│   │   └── theme_constants.dart
-│   ├── 📁 utils/                # الأدوات المساعدة
+│   │   ├── theme_constants.dart
+│   │   └── index.dart
+│   ├── utils/                # Utility classes
 │   │   ├── logger.dart
-│   │   ├── extensions.dart
-│   │   └── helpers.dart
-│   └── 📁 exceptions/           # الاستثناءات المخصصة
-│       ├── app_exceptions.dart
-│       ├── network_exceptions.dart
-│       └── validation_exceptions.dart
-│
-├── 📁 domain/                    # طبقة المجال (Business Logic)
-│   ├── 📁 entities/             # كيانات الأعمال
-│   │   ├── user.dart
-│   │   ├── app_settings.dart
-│   │   └── app_config.dart
-│   ├── 📁 value_objects/        # كائنات القيمة
-│   │   ├── email.dart
-│   │   ├── password.dart
-│   │   └── url.dart
-│   ├── 📁 repositories/         # واجهات المستودعات
-│   │   ├── auth_repository.dart
-│   │   ├── storage_repository.dart
-│   │   └── analytics_repository.dart
-│   └── 📁 usecases/             # حالات الاستخدام
-│       ├── auth_usecases.dart
-│       ├── settings_usecases.dart
-│       └── analytics_usecases.dart
-│
-├── 📁 data/                      # طبقة البيانات
-│   ├── 📁 datasources/          # مصادر البيانات
-│   │   ├── 📁 remote/           # مصادر البيانات البعيدة
-│   │   │   ├── api_client.dart
-│   │   │   ├── firebase_client.dart
-│   │   │   └── interceptors/
-│   │   └── 📁 local/            # مصادر البيانات المحلية
-│   │       ├── storage_service.dart
-│   │       ├── cache_service.dart
-│   │       └── preferences_service.dart
-│   ├── 📁 models/               # نماذج البيانات
-│   │   ├── user_model.dart
-│   │   ├── settings_model.dart
-│   │   └── api_response_model.dart
-│   └── 📁 repositories/         # تنفيذ المستودعات
-│       ├── auth_repository_impl.dart
-│       ├── storage_repository_impl.dart
-│       └── analytics_repository_impl.dart
-│
-├── 📁 presentation/              # طبقة العرض
-│   ├── 📁 widgets/              # العناصر القابلة لإعادة الاستخدام
-│   │   ├── 📁 common/           # عناصر مشتركة
-│   │   │   ├── loading_widget.dart
-│   │   │   ├── error_widget.dart
-│   │   │   └── empty_widget.dart
-│   │   ├── 📁 adaptive/         # عناصر متكيفة
-│   │   │   ├── adaptive_scaffold.dart
-│   │   │   ├── adaptive_button.dart
-│   │   │   └── adaptive_app_bar.dart
-│   │   └── 📁 forms/            # عناصر النماذج
-│   │       ├── custom_text_field.dart
-│   │       └── custom_dropdown.dart
-│   ├── 📁 theme/                # إدارة المظهر
-│   │   ├── app_theme.dart
-│   │   ├── theme_controller.dart
-│   │   ├── adaptive_theme.dart
-│   │   └── 📁 colors/
-│   │       ├── app_colors.dart
-│   │       └── semantic_colors.dart
-│   └── 📁 navigation/           # إدارة التنقل
-│       ├── app_router.dart
-│       ├── navigation_service.dart
-│       └── route_guards.dart
-│
-├── 📁 services/                  # الخدمات الأساسية
-│   ├── 📁 network/              # خدمات الشبكة
-│   │   ├── network_info.dart
-│   │   ├── connectivity_service.dart
-│   │   └── http_client.dart
-│   ├── 📁 storage/              # خدمات التخزين
-│   │   ├── local_storage.dart
-│   │   ├── secure_storage.dart
-│   │   └── cache_manager.dart
-│   ├── 📁 analytics/            # خدمات التحليلات
-│   │   ├── analytics_service.dart
-│   │   ├── firebase_analytics.dart
-│   │   └── event_tracker.dart
-│   ├── 📁 notifications/        # خدمات الإشعارات
-│   │   ├── notification_service.dart
-│   │   ├── push_notifications.dart
-│   │   └── local_notifications.dart
-│   └── 📁 deep_linking/         # خدمات الروابط العميقة
-│       ├── deep_link_service.dart
-│       ├── link_handler.dart
-│       └── link_parser.dart
-│
-├── 📁 i18n/                      # التدويل والترجمة
-│   ├── app_localizations.dart
-│   ├── locale_controller.dart
-│   ├── 📁 formatters/           # منسقات التاريخ والأرقام
-│   │   ├── date_formatter.dart
-│   │   ├── number_formatter.dart
-│   │   └── currency_formatter.dart
-│   └── 📁 validators/           # مدققات النصوص
-│       ├── text_validator.dart
-│       └── input_validator.dart
-│
-└── 📁 providers/                 # مزودي Riverpod
-    ├── 📁 core_providers.dart    # المزودين الأساسيين
-    ├── 📁 service_providers.dart # مزودي الخدمات
-    ├── 📁 repository_providers.dart # مزودي المستودعات
-    └── 📁 feature_providers.dart # مزودي الميزات
+│   │   ├── date_utils.dart
+│   │   ├── validation_utils.dart
+│   │   ├── string_utils.dart
+│   │   └── index.dart
+│   ├── exceptions/           # Exception classes
+│   │   ├── app_exceptions.dart
+│   │   ├── network_exceptions.dart
+│   │   └── index.dart
+│   └── index.dart
+├── domain/                   # Domain layer (entities, repositories, use cases)
+│   ├── entities/            # Business entities
+│   ├── repositories/        # Repository interfaces
+│   ├── usecases/           # Business logic use cases
+│   └── value_objects/      # Value objects
+├── data/                    # Data layer (models, datasources, repositories)
+│   ├── models/             # Data models
+│   ├── datasources/        # Data sources (remote/local)
+│   └── repositories/       # Repository implementations
+├── presentation/           # Presentation layer
+│   ├── widgets/           # Reusable widgets
+│   │   ├── common/        # Common widgets
+│   │   └── adaptive/      # Platform-adaptive widgets
+│   ├── theme/             # Theme configuration
+│   │   ├── colors/        # Color definitions
+│   │   └── ...
+│   └── navigation/        # Navigation configuration
+├── services/              # Core services
+│   ├── network/           # Network services
+│   ├── storage/           # Storage services
+│   ├── analytics/         # Analytics services
+│   ├── notifications/     # Notification services
+│   └── deep_linking/      # Deep linking services
+├── providers/             # Riverpod providers
+├── i18n/                  # Internationalization
+└── README.md
 ```
 
-## 🎯 مبادئ التصميم
+## 🎯 Key Improvements
 
-### 1. **فصل المسؤوليات (Separation of Concerns)**
-- كل مجلد له مسؤولية محددة وواضحة
-- عدم تداخل الوظائف بين المجلدات
-- واجهات واضحة بين الطبقات
+### 1. **Common Module** (`common/`)
+- **Constants**: Centralized application constants organized by domain
+  - `app_constants.dart`: General application constants
+  - `api_constants.dart`: API-related constants (URLs, endpoints, timeouts)
+  - `theme_constants.dart`: Design system constants (spacing, colors, typography)
+- **Utils**: Reusable utility classes
+  - `logger.dart`: Centralized logging functionality
+  - `date_utils.dart`: Date formatting and manipulation
+  - `validation_utils.dart`: Input validation utilities
+  - `string_utils.dart`: String manipulation utilities
+- **Exceptions**: Custom exception classes
+  - `app_exceptions.dart`: General application exceptions
+  - `network_exceptions.dart`: Network-specific exceptions
 
-### 2. **تبعية من الداخل للخارج (Dependency Rule)**
-```
-presentation → domain ← data
-     ↓           ↑        ↓
-   services ←───┴────── providers
-```
+### 2. **Presentation Layer** (`presentation/`)
+- **Widgets**: Organized by purpose and platform adaptation
+  - `common/`: Platform-agnostic widgets
+  - `adaptive/`: Platform-adaptive widgets
+- **Theme**: Comprehensive theming system
+  - `colors/`: Color palette and definitions
+  - Theme controllers and configurations
+- **Navigation**: Centralized routing and navigation
 
-### 3. **قابلية الاختبار (Testability)**
-- كل مكون قابل للاختبار بشكل منفصل
-- استخدام الواجهات بدلاً من التنفيذات المباشرة
-- إمكانية استبدال المكونات بسهولة
+### 3. **Services Layer** (`services/`)
+- **Network**: HTTP client, interceptors, network utilities
+- **Storage**: Local storage, caching, persistence
+- **Analytics**: Event tracking and analytics
+- **Notifications**: Push notifications and local notifications
+- **Deep Linking**: URL handling and deep link processing
 
-### 4. **قابلية التوسع (Scalability)**
-- هيكل مرن يسمح بإضافة ميزات جديدة
-- عدم الحاجة لتغيير الكود الموجود
-- دعم التطوير المتوازي
+## 🚀 Benefits
 
-## 📋 مسؤوليات كل مجلد
+### **Maintainability**
+- Clear separation of concerns
+- Modular architecture
+- Easy to locate and modify code
 
-### 🏠 **common/**
-- **constants/**: الثوابت العامة للتطبيق
-- **utils/**: الأدوات المساعدة والوظائف المشتركة
-- **exceptions/**: الاستثناءات المخصصة
+### **Scalability**
+- Extensible structure
+- Reusable components
+- Consistent patterns
 
-### 🧠 **domain/**
-- **entities/**: كيانات الأعمال الأساسية
-- **value_objects/**: كائنات القيمة غير القابلة للتغيير
-- **repositories/**: واجهات المستودعات
-- **usecases/**: منطق الأعمال وحالات الاستخدام
+### **Testability**
+- Isolated components
+- Dependency injection ready
+- Clear interfaces
 
-### 💾 **data/**
-- **datasources/**: مصادر البيانات (محلية وبعيدة)
-- **models/**: نماذج البيانات للتبادل
-- **repositories/**: تنفيذ واجهات المستودعات
+### **Developer Experience**
+- Intuitive file organization
+- Consistent naming conventions
+- Comprehensive documentation
 
-### 🎨 **presentation/**
-- **widgets/**: العناصر القابلة لإعادة الاستخدام
-- **theme/**: إدارة المظهر والتصميم
-- **navigation/**: إدارة التنقل والمسارات
+## 📦 Usage
 
-### ⚙️ **services/**
-- **network/**: خدمات الشبكة والاتصال
-- **storage/**: خدمات التخزين المحلي
-- **analytics/**: خدمات التحليلات والتتبع
-- **notifications/**: خدمات الإشعارات
-- **deep_linking/**: خدمات الروابط العميقة
-
-### 🌍 **i18n/**
-- إدارة اللغات والترجمة
-- منسقات التاريخ والأرقام
-- مدققات النصوص المدخلة
-
-### 🔌 **providers/**
-- مزودي Riverpod لجميع الخدمات
-- إدارة حالة التطبيق
-- حقن التبعيات
-
-## 🚀 أفضل الممارسات
-
-### 1. **تسمية الملفات**
+### Importing Constants
 ```dart
-// ✅ صحيح
-user_repository.dart
-auth_service.dart
-loading_widget.dart
-
-// ❌ خاطئ
-userRepo.dart
-AuthService.dart
-LoadingWidget.dart
+import 'package:flutter_riverpod_tmplt/core/common/constants/api_constants.dart';
+import 'package:flutter_riverpod_tmplt/core/common/constants/theme_constants.dart';
 ```
 
-### 2. **تنظيم الاستيرادات**
+### Using Utilities
 ```dart
-// 1. استيرادات Flutter
-import 'package:flutter/material.dart';
-
-// 2. استيرادات الطرف الثالث
-import 'package:riverpod/riverpod.dart';
-
-// 3. استيرادات المشروع
-import '../../domain/entities/user.dart';
-import '../services/auth_service.dart';
+import 'package:flutter_riverpod_tmplt/core/common/utils/date_utils.dart';
+import 'package:flutter_riverpod_tmplt/core/common/utils/validation_utils.dart';
 ```
 
-### 3. **استخدام الواجهات**
+### Handling Exceptions
 ```dart
-// ✅ صحيح - استخدام الواجهة
-final authRepository = ref.read<AuthRepository>(authRepositoryProvider);
-
-// ❌ خاطئ - استخدام التنفيذ مباشرة
-final authRepository = ref.read<AuthRepositoryImpl>(authRepositoryProvider);
+import 'package:flutter_riverpod_tmplt/core/common/exceptions/network_exceptions.dart';
 ```
 
-### 4. **إدارة الأخطاء**
+### Complete Common Module Import
 ```dart
-// ✅ صحيح - معالجة شاملة للأخطاء
-try {
-  final result = await repository.getData();
-  return result.when(
-    success: (data) => data,
-    failure: (error) => throw AppException(error.message),
-  );
-} catch (e) {
-  logger.error('Error fetching data: $e');
-  rethrow;
-}
+import 'package:flutter_riverpod_tmplt/core/common/index.dart';
 ```
 
-## 🔄 الهجرة من الهيكل القديم
+## 🔧 Development Guidelines
 
-### الخطوات المطلوبة:
+### Adding New Constants
+1. Create a new file in `common/constants/` for domain-specific constants
+2. Add export to `common/constants/index.dart`
+3. Follow naming convention: `{domain}_constants.dart`
 
-1. **إنشاء المجلدات الجديدة**
-2. **نقل الملفات إلى مواقعها الجديدة**
-3. **تحديث الاستيرادات**
-4. **إعادة تنظيم المزودين**
-5. **اختبار جميع الوظائف**
+### Adding New Utilities
+1. Create a new file in `common/utils/` for the utility class
+2. Add export to `common/utils/index.dart`
+3. Follow naming convention: `{purpose}_utils.dart`
 
-### مثال على النقل:
+### Adding New Exceptions
+1. Create a new file in `common/exceptions/` for domain-specific exceptions
+2. Add export to `common/exceptions/index.dart`
+3. Extend base `AppException` class
 
-```dart
-// قبل
-lib/core/logger.dart
-lib/core/exceptions.dart
+### Widget Organization
+- **Common Widgets**: Platform-agnostic, reusable components
+- **Adaptive Widgets**: Platform-specific implementations
+- **Feature Widgets**: Feature-specific components (in feature modules)
 
-// بعد
-lib/core/common/utils/logger.dart
-lib/core/common/exceptions/app_exceptions.dart
-```
+## 🎨 Design System
 
-## 📊 مميزات الهيكل الجديد
+The theme constants provide a comprehensive design system:
+- **Spacing**: Consistent padding, margin, and spacing values
+- **Typography**: Font sizes, weights, and line heights
+- **Colors**: Primary, secondary, and semantic color palette
+- **Elevation**: Shadow and elevation values
+- **Animation**: Duration and curve constants
 
-### ✅ **المميزات**
+## 🔗 Navigation
 
-- **وضوح المسؤوليات**: كل مجلد له دور محدد
-- **سهولة الصيانة**: تنظيم منطقي للملفات
-- **قابلية الاختبار**: فصل واضح للمكونات
-- **قابلية التوسع**: هيكل مرن للنمو
-- **إعادة الاستخدام**: مكونات قابلة لإعادة الاستخدام
-- **أداء أفضل**: تحميل محسن للمكونات
+The navigation system provides:
+- Centralized route definitions
+- Type-safe navigation
+- Deep linking support
+- Navigation guards
+- Error handling
 
-### 🎯 **الفوائد**
+## 📊 Analytics & Monitoring
 
-- **تطوير أسرع**: فهم أسهل للكود
-- **أخطاء أقل**: تنظيم أفضل يقلل من الأخطاء
-- **تعاون أفضل**: فريق العمل يفهم الهيكل بسهولة
-- **جودة أعلى**: ممارسات برمجية أفضل
+The services layer includes:
+- Event tracking
+- Performance monitoring
+- Error reporting
+- User behavior analytics
 
----
+## 🔐 Security
 
-**ملاحظة**: هذا الهيكل مصمم ليكون أساساً قوياً وقابلاً للتوسع لتطبيقات Flutter الكبيرة والمتوسطة. 
+Security features include:
+- Input validation
+- Data sanitization
+- Secure storage
+- Network security
+
+## 🌐 Internationalization
+
+The i18n module provides:
+- Multi-language support
+- RTL layout support
+- Localized content
+- Cultural adaptations
+
+## 📱 Platform Support
+
+The architecture supports:
+- **iOS**: Native iOS patterns and conventions
+- **Android**: Material Design and Android patterns
+- **Web**: Responsive web design
+- **Desktop**: Desktop-optimized interfaces
+
+## 🧪 Testing
+
+The structure supports:
+- **Unit Tests**: Isolated component testing
+- **Widget Tests**: UI component testing
+- **Integration Tests**: End-to-end testing
+- **Golden Tests**: Visual regression testing
+
+## 📈 Performance
+
+Performance optimizations include:
+- Lazy loading
+- Efficient state management
+- Optimized rendering
+- Memory management
+
+## 🔄 Migration Guide
+
+If migrating from the old structure:
+
+1. **Update Imports**: Replace old import paths with new ones
+2. **Move Files**: Relocate files to their new locations
+3. **Update Dependencies**: Ensure all dependencies are properly imported
+4. **Test Thoroughly**: Verify all functionality works correctly
+
+## 🤝 Contributing
+
+When contributing to the core module:
+
+1. **Follow Structure**: Maintain the established organization
+2. **Add Documentation**: Document new components and utilities
+3. **Update Index Files**: Add exports for new files
+4. **Write Tests**: Include tests for new functionality
+5. **Follow Conventions**: Use consistent naming and patterns
+
+## 📚 Additional Resources
+
+- [Flutter Architecture Patterns](https://flutter.dev/docs/development/data-and-backend/state-mgmt/options)
+- [Clean Architecture](https://blog.cleancoder.com/uncle-bob/2012/08/13/the-clean-architecture.html)
+- [Riverpod Documentation](https://riverpod.dev/)
+- [Freezed Documentation](https://pub.dev/packages/freezed) 

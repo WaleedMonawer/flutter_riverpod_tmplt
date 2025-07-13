@@ -1,4 +1,4 @@
-import '../entities/post.dart';
+import 'package:flutter_riverpod_tmplt/core/domain/entities/post.dart';
 import 'package:flutter_riverpod_tmplt/core/domain/entities/result.dart';
 
 abstract class PostRepository {

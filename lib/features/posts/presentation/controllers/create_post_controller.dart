@@ -1,10 +1,9 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:flutter_riverpod_tmplt/features/posts/presentation/controllers/create_post_state.dart';
-import '../../domain/entities/post.dart';
-import '../../domain/usecases/create_post.dart';
 import 'package:flutter_riverpod_tmplt/core/domain/entities/result.dart';
-import '../../../../core/logger.dart';
-import '../../posts_provider.dart';
+import 'package:flutter_riverpod_tmplt/features/posts/posts_provider.dart';
+import 'package:flutter_riverpod_tmplt/features/posts/presentation/controllers/create_post_state.dart';
+import 'package:flutter_riverpod_tmplt/core/common/utils/logger.dart';
+import 'package:flutter_riverpod_tmplt/features/posts/domain/usecases/create_post.dart';
 
 // Provider for CreatePostController
 final createPostControllerProvider = StateNotifierProvider<CreatePostController, CreatePostState>(

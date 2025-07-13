@@ -3,11 +3,11 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'core/theme/theme_controller.dart';
-import 'core/theme/adaptive_theme.dart';
-import 'core/data/local/storage/local_storage.dart';
-import 'core/providers/local_providers.dart';
-import 'core/routing/app_router.dart';
+import 'package:flutter_riverpod_tmplt/core/presentation/theme/theme_controller.dart';
+import 'package:flutter_riverpod_tmplt/core/presentation/theme/adaptive_theme.dart';
+import 'package:flutter_riverpod_tmplt/core/data/datasources/local/storage/local_storage.dart';
+import 'package:flutter_riverpod_tmplt/core/providers/local_providers.dart';
+import 'package:flutter_riverpod_tmplt/core/presentation/navigation/app_router.dart';
 
 
 void main() async {

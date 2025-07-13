@@ -1,10 +1,10 @@
-import '../../domain/entities/post.dart';
-import '../../domain/repositories/post_repository.dart';
-import '../datasources/posts_remote_datasource.dart';
-import '../datasources/posts_local_datasource.dart';
-import '../models/post_model.dart';
+import 'package:flutter_riverpod_tmplt/core/common/utils/logger.dart';
 import 'package:flutter_riverpod_tmplt/core/domain/entities/result.dart';
-import '../../../../core/logger.dart';
+import 'package:flutter_riverpod_tmplt/core/domain/entities/post.dart';
+import 'package:flutter_riverpod_tmplt/core/data/models/post_model.dart';
+import 'package:flutter_riverpod_tmplt/features/posts/domain/repositories/post_repository.dart';
+import 'package:flutter_riverpod_tmplt/features/posts/data/datasources/posts_remote_datasource.dart';
+import 'package:flutter_riverpod_tmplt/features/posts/data/datasources/posts_local_datasource.dart';
 
 class PostRepositoryImpl implements PostRepository {
   final PostsRemoteDataSource remoteDataSource;
@@ -140,7 +140,7 @@ class PostRepositoryImpl implements PostRepository {
       return remoteResult.when(
         success: (_) {
           Logger.info('Successfully deleted post with ID: $id');
-          return const Result.success(null);
+          return Result.success(null);
         },
         failure: (message) {
           Logger.error('Failed to delete post: $message');

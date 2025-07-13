@@ -1,9 +1,9 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import '../models/post_model.dart';
-import '../../../../core/data/api/api_service.dart';
-import '../../../../core/providers/api_providers.dart';
+import 'package:flutter_riverpod_tmplt/core/data/models/post_model.dart';
+import 'package:flutter_riverpod_tmplt/core/data/datasources/remote/api_service.dart';
+import 'package:flutter_riverpod_tmplt/core/providers/api_providers.dart';
 import 'package:flutter_riverpod_tmplt/core/domain/entities/result.dart';
-import '../../../../core/logger.dart';
+import 'package:flutter_riverpod_tmplt/core/common/utils/logger.dart';
 
 abstract class PostsRemoteDataSource {
   Future<Result<List<PostModel>>> getPosts();
@@ -50,7 +50,7 @@ class PostsRemoteDataSourceImpl implements PostsRemoteDataSource {
     Logger.info('RemoteDataSource: Deleting post via API service');
     final result = await _apiService.deletePost(id);
     return result.when(
-      success: (_) => const Result.success(null),
+      success: (_) => Result.success(null),
       failure: (error) => Result.failure(error),
     );
   }
@@ -72,6 +72,6 @@ class PostsRemoteDataSourceImpl implements PostsRemoteDataSource {
     Logger.info('RemoteDataSource: Searching posts via API service');
     // For now, return empty list since search is not implemented in API service
     // This can be implemented later when the API supports search
-    return const Result.success([]);
+    return Result.success([]);
   }
 } 

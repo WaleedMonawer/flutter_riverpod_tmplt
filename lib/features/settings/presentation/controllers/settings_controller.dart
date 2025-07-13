@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_riverpod_tmplt/features/settings/presentation/controllers/settings_state.dart';
 
-import '../../../../core/providers/local_providers.dart';
-import '../../../../core/theme/theme_controller.dart';
-import '../../../../core/theme/app_theme.dart';
-import '../../../../core/logger.dart';
+import 'package:flutter_riverpod_tmplt/core/providers/local_providers.dart';
+import 'package:flutter_riverpod_tmplt/core/presentation/theme/theme_controller.dart';
+import 'package:flutter_riverpod_tmplt/core/presentation/theme/app_theme.dart';
+import 'package:flutter_riverpod_tmplt/core/common/utils/logger.dart';
 import 'package:flutter_riverpod_tmplt/core/domain/entities/result.dart';
 import '../../../posts/presentation/controllers/posts_controller.dart';
 
@@ -71,7 +71,7 @@ class SettingsController extends StateNotifier<AsyncValue<SettingsState>> {
       ));
       
       Logger.info('Theme updated to: $themeType');
-      return const Result.success(null);
+      return Result.success(null);
     } catch (e) {
       Logger.error('Error updating theme', e);
       state = state.whenData((settings) => settings.copyWith(
@@ -103,7 +103,7 @@ class SettingsController extends StateNotifier<AsyncValue<SettingsState>> {
       ));
       
       Logger.info('Language updated to: $languageCode');
-      return const Result.success(null);
+      return Result.success(null);
     } catch (e) {
       Logger.error('Error updating language', e);
       state = state.whenData((settings) => settings.copyWith(
@@ -129,7 +129,7 @@ class SettingsController extends StateNotifier<AsyncValue<SettingsState>> {
       ref.read(postsControllerProvider.notifier).refreshPosts();
       
       Logger.info('All data cleared successfully');
-      return const Result.success(null);
+      return Result.success(null);
     } catch (e) {
       Logger.error('Error clearing data', e);
       state = state.whenData((settings) => settings.copyWith(

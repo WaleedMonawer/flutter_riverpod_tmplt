@@ -1,8 +1,8 @@
 import 'dart:convert';
-import '../models/post_model.dart';
-import '../../../../core/data/local/storage/local_storage.dart';
 import 'package:flutter_riverpod_tmplt/core/domain/entities/result.dart';
-import '../../../../core/logger.dart';
+import 'package:flutter_riverpod_tmplt/core/data/models/post_model.dart';
+import 'package:flutter_riverpod_tmplt/core/data/datasources/local/storage/local_storage.dart';
+import 'package:flutter_riverpod_tmplt/core/common/utils/logger.dart';
 
 abstract class PostsLocalDataSource {
   Future<Result<List<PostModel>>> getPosts();
@@ -26,7 +26,7 @@ class PostsLocalDataSourceImpl implements PostsLocalDataSource {
         success: (jsonString) {
           if (jsonString == null) {
             Logger.info('No cached posts found');
-            return const Result.success([]);
+            return Result.success([]);
           }
           
           final List<dynamic> jsonList = jsonDecode(jsonString);

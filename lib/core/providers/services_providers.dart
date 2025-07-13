@@ -1,8 +1,8 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:flutter_riverpod_tmplt/core/firebase/analytics/analytics_service.dart';
-import 'package:flutter_riverpod_tmplt/core/firebase/notifications/notification_service.dart';
 
-import 'package:flutter_riverpod_tmplt/core/routing/deep_linking/deep_link_service.dart'; 
+import 'package:flutter_riverpod_tmplt/core/services/deep_linking/deep_link_service.dart';
+import 'package:flutter_riverpod_tmplt/core/services/analytics/analytics_service.dart';
+import 'package:flutter_riverpod_tmplt/core/services/notifications/notification_service.dart'; 
 
 
 // Analytics Service Provider

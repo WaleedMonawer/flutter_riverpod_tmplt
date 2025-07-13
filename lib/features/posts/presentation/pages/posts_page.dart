@@ -2,13 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import '../controllers/posts_controller.dart';
-import '../../../../core/widgets/loading_widget.dart';
-import '../../../../core/widgets/error_widget.dart';
-import '../../../../core/widgets/adaptive_scaffold.dart';
 import 'package:flutter_riverpod_tmplt/core/domain/entities/result.dart';
-import '../../../../core/theme/adaptive_theme.dart';
-import '../../../../core/providers/local_providers.dart';
+import 'package:flutter_riverpod_tmplt/core/presentation/widgets/common/loading_widget.dart';
+import 'package:flutter_riverpod_tmplt/core/presentation/widgets/common/error_widget.dart';
+import 'package:flutter_riverpod_tmplt/core/presentation/widgets/adaptive/adaptive_scaffold.dart';
+import 'package:flutter_riverpod_tmplt/core/presentation/theme/adaptive_theme.dart';
+import 'package:flutter_riverpod_tmplt/core/providers/local_providers.dart';
+import 'package:flutter_riverpod_tmplt/features/posts/presentation/controllers/posts_controller.dart';
 import 'create_post_page.dart';
 
 class PostsPage extends ConsumerWidget {
